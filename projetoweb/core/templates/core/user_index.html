@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="row">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+    <p>Meu calendário:</p>
+    <table class="table">
+        <tr>
+            <td>Domingo</td>
+            <td>Segunda-feira</td>
+            <td>Terça-feira</td>
+            <td>Quarta-feira</td>
+            <td>Quinta-feira</td>
+            <td>Sexta-feira</td>
+            <td>Sábado</td>
+        </tr>
+        <tr>
+            {% for activity in activities %}
+                {% if activity.status <= 50 %}
+                    <td class="danger">
+                        <p>{{activity.title}}</p>
+                    </td>
+                {% else %}
+                    <td class="">
+                        <p>{{activity.title}}</p>
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+{% endblock %}
